@@ -76,6 +76,5 @@ contains three sketches per question, encoding descriptions and comparisons,
 design justifications, screenshots of both implemented visualizations,
 data-backed answers, and the repository and Pages links.
 
-The site is published using GitHub Actions. The existing A0 repository remains
-public because this account’s GitHub Free plan does not allow Pages from a
-private personal repository. Keep the site updated before the Canvas deadline.
+The site is published using GitHub Actions. This A1 repository is public because
+the current GitHub Free plan does not support Pages from a private personal repository.
