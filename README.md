@@ -1,7 +1,9 @@
 # Summer, on Screen — CSCI 5609 A1
 
 SvelteKit + TypeScript + D3 implementation of the Summer Movies assignment.
-This is the standalone A1 project repository. A0 remains in its own repository.
+This A1 repository continues the A0 SvelteKit project, with the original A0 page
+at `src/routes/A0/+page.svelte` and the assignment at `src/routes/A1/+page.svelte`.
+The separate A0 repository remains unchanged and contains only the A0 project.
 
 ## Run
 
@@ -10,7 +12,8 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173 (the root page shows A1).
+Open http://localhost:5173/A1 for A1 or http://localhost:5173/A0 for A0.
+The root page also shows A1 for compatibility with the previously submitted link.
 
 ```sh
 npm run check
@@ -22,7 +25,8 @@ The static build defaults to base `/A1`. Preview it at
 http://localhost:4173/A1/.
 For a different repository name, use `BASE_PATH=/your-repo npm run build`.
 The included GitHub Actions workflow derives BASE_PATH from the repository name.
-Published site: https://jason-2333.github.io/A1
+Published A1 route: https://jason-2333.github.io/A1/A1/
+Preserved A0 route: https://jason-2333.github.io/A1/A0/
 Repository: https://github.com/jason-2333/A1
 A0 project: https://github.com/jason-2333/A0
 

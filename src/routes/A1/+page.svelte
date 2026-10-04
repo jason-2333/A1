@@ -88,7 +88,7 @@
         {#if showSketches}<div id="design-sketches"><Sketches /></div>{/if}
       </section>
     {/if}
-    <footer><div><a class="footer-brand" href="#page-title">Summer, on Screen</a><p>CSCI 5609 · A1 Visual Encoding</p></div><div class="footer-links"><a href="{base}/summer_movies.csv" download>Download the data ↗</a><a href="https://github.com/UMN-CSCI5609/Assignments-Instructions/tree/main/A1-Visual-Encoding" target="_blank" rel="noreferrer">Assignment & source ↗</a><a href="https://jason-2333.github.io/A0">A0 exercise ↗</a></div><p class="data-note">IMDb non-commercial course dataset. Missing numeric values remain unknown. Genre counts describe this collection only.</p></footer>
+    <footer><div><a class="footer-brand" href="#page-title">Summer, on Screen</a><p>CSCI 5609 · A1 Visual Encoding</p></div><div class="footer-links"><a href="{base}/summer_movies.csv" download>Download the data ↗</a><a href="https://github.com/UMN-CSCI5609/Assignments-Instructions/tree/main/A1-Visual-Encoding" target="_blank" rel="noreferrer">Assignment & source ↗</a><a href="{base}/A0/">A0 exercise ↗</a></div><p class="data-note">IMDb non-commercial course dataset. Missing numeric values remain unknown. Genre counts describe this collection only.</p></footer>
   </main>
 </div>
 

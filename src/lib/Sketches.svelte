@@ -5,7 +5,7 @@
     { q:'Q1', name:'Annual grouped bars', chosen:false, type:'bars', encoding:'Year → x groups; movie count (quantitative) → bar height. Each year has its own three leading genres, identified by color and labels.', reason:'Preserves the movie counts, but dozens of groups need much more space and make long-term persistence difficult to follow.' },
     { q:'Q2', name:'Co-occurrence matrix', chosen:true, type:'matrix', encoding:'Genre → both axes. Each square encodes a pair of genres; color lightness and a number encode shared movie count. Optional row shares encode conditional proportions.', reason:'Chosen: every genre is visible at once, aligned cells support comparison, and explicit numbers show weak as well as strong relationships.' },
     { q:'Q2', name:'Weighted network', chosen:false, type:'network', encoding:'Genre → node; node area → genre total. An edge connects genres that share movies; edge width → shared movie count. Color identifies a genre.', reason:'Makes clusters visible, but crossings and variable node positions make precise pairwise comparisons difficult.' },
-    { q:'Q2', name:'Bubble matrix', chosen:false, type:'bubble', encoding:'Genre → both axes. A circle at each intersection encodes pair count using area; color identifies the row genre. A size legend maps circles to counts.', reason:'Shows all pairs together, but area is less precise than a labeled heatmap and small counts can become nearly invisible.' }
+    { q:'Q2', name:'Genre chord diagram', chosen:false, type:'chord', encoding:'Genres (categorical) → labeled sectors around a circle and sector colors. Ribbons join co-occurring genres; ribbon width at both ends → shared movie count (quantitative). All genres appear in one circle.', reason:'Shows major connections in a compact circular layout, but overlapping ribbons and curved widths make exact comparisons and small counts harder to read than a labeled matrix.' }
   ];
 </script>
 <div class="sketch-grid">
@@ -34,11 +34,15 @@
           <path d="M70 42 L111 110" stroke="#742e42" stroke-width="8" />
           {#each [[70,42,19],[170,28,12],[221,90,15],[111,110,22]] as point,i}<circle cx={point[0]} cy={point[1]} r={point[2]} fill={['#742e42','#b6717d','#b85e36','#c99e76'][i]} />{/each}
           <text x="15" y="25">Genres</text>
-        {:else}
-          {#each Array.from({length:4}) as _,row}{#each Array.from({length:6}) as _,col}
-            <circle cx={61+col*31} cy={27+row*26} r={3+(row*3+col*2)%9} fill={['#742e42','#b6717d','#b85e36','#c99e76'][row]} opacity=".8" />
-          {/each}{/each}
-          <text x="6" y="68">Genre</text><text x="124" y="140">Genre →</text>
+        {:else if design.type==='chord'}
+          <path d="M110 30 Q140 75 184 100 L173 110 Q140 75 97 37 Z" fill="#742e42" opacity=".5" />
+          <path d="M177 30 Q140 75 96 100 L105 110 Q140 75 187 37 Z" fill="#b6717d" opacity=".5" />
+          <path d="M188 51 Q140 75 100 51 L95 59 Q140 75 191 62 Z" fill="#b85e36" opacity=".5" />
+          <path d="M110 30 A50 50 0 0 1 167 28" stroke="#742e42" stroke-width="10" fill="none" />
+          <path d="M177 34 A50 50 0 0 1 188 86" stroke="#b6717d" stroke-width="10" fill="none" />
+          <path d="M183 100 A50 50 0 0 1 123 119" stroke="#b85e36" stroke-width="10" fill="none" />
+          <path d="M108 111 A50 50 0 0 1 95 51" stroke="#c99e76" stroke-width="10" fill="none" />
+          <text x="121" y="12">Drama</text><text x="200" y="68">Comedy</text><text x="128" y="141">Romance</text><text x="35" y="73">Family</text>
         {/if}
       </svg>
       <p>{design.encoding}</p><p class="comparison">{design.reason}</p>
